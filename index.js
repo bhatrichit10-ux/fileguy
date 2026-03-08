@@ -1,5 +1,6 @@
-const fs = require('fs')
-const path = require('path')
+import * as p from '@clack/prompts';
+import * as fs from 'node:fs';
+import * as path from 'path';
 
-const filesArray = fs.readdirSync(__dirname, '') // gng this is an array 
-
+const filesArray = fs.readdirSync(path.join(''))
+console.log(filesArray);
