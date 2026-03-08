@@ -3,7 +3,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import boxen from "boxen";
 import readDir from "./src/readDir.js";
-
+import { highlight } from "cli-highlight";  
 p.updateSettings({
   aliases: {
     w: "up",
@@ -52,7 +52,7 @@ async function main() {
 
       const termWidth = process.stdout.columns || 80;
 
-      const boxed = boxen(content, {
+      const boxed = boxen(highlight(content), {
         padding: 1,
         borderStyle: "classic",
         width: Math.min(termWidth - 2, 120),
