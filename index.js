@@ -13,6 +13,12 @@ p.updateSettings({
   },
 });
 
+function cleanContent(content) {
+  return content
+    .replace(/\r/g, "")      
+    .replace(/\t/g, "    ");  // ts removes windows glitches with ascii
+}
+
 async function main() {
   while (true) {
     const filesArray = await readDir(process.cwd());
@@ -28,6 +34,8 @@ async function main() {
       ],
     });
 
+    if (!selected) continue;
+
     const fullPath = path.join(process.cwd(), selected);
     const stats = fs.statSync(fullPath);
 
@@ -37,25 +45,31 @@ async function main() {
     }
 
     if (stats.isFile()) {
-      const content = fs.readFileSync(fullPath, "utf8");
+      let content = fs.readFileSync(fullPath, "utf8");
+      content = cleanContent(content);
 
-      console.clear();
+      process.stdout.write("\x1Bc") // clear console
 
-      const width = process.stdout.columns || 80;
+      const termWidth = process.stdout.columns || 80;
 
       const boxed = boxen(content, {
         padding: 1,
-        borderStyle: "classic"
+        borderStyle: "classic",
+        width: Math.min(termWidth - 2, 120),
+        wordWrap: true,
       });
 
       console.log(boxed);
 
-      await p.confirm({
+      const confirmt = await p.confirm({
         message: "Press enter to go back",
         initialValue: true,
       });
+      if (confirmt) {
+        console.log("\x1Bc") 
+        process.exit(0)
     }
   }
 }
-
-main();
+}
+main()
