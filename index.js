@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import * as p from "@clack/prompts";
 import * as fs from "node:fs";
 import * as path from "node:path";
