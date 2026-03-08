@@ -1,0 +1,21 @@
+{
+  "name": "fileguy",
+  "version": "1.0.0",
+  "description": "my own file manager!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhatrichit10-ux/fileguy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bhatrichit10-ux/fileguy/issues"
+  },
+  "homepage": "https://github.com/bhatrichit10-ux/fileguy#readme"
+}
