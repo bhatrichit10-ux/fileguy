@@ -1,2 +1,17 @@
 # fileguy
 my own file manager!
+
+# Install
+```
+# install
+$ npm i -g fileguy
+
+# usage
+$ fileguy
+```
+
+# Images
+
+![alt text](https://repent.wtf/u/tZ8uYo.png)
+![alt text](https://repent.wtf/u/0asAB1.png)
+![alt text](https://repent.wtf/u/JqcVLt.png)
